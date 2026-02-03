@@ -30,11 +30,11 @@ Param (
 )
 
 $ProgramName = $MyInvocation.MyCommand.Name
-$ProgramVersion = "1.0.25233"
+$ProgramVersion = "1.0.2634"
 if( $Version ) { 
     write-host "Program Name: $ProgramName`nVersion: $ProgramVersion"
     exit 0
 }
 
-Get-ComputerInfo | select-object csName, osname, osbuildnumber, oshotfixes  -ExpandProperty oshotfixes | select-object csname,osname,osbuildnumber,hotfixid | Format-table
+Get-ComputerInfo | select-object csName, osname, osbuildnumber, oshotfixes  -ExpandProperty oshotfixes | select-object csname,osname,osbuildnumber,hotfixid,InstalledOn | Format-table
 Write-Host "https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information"
